@@ -1,0 +1,51 @@
+﻿@model UserManagementSystem.ViewModel.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+        <div class="card-body py-5 px-md-5">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-5">Login Page</h2>
+                    <form asp-controller="Account" asp-action="Login" method="post">
+                        <input type="hidden" value="@ViewBag.ReturnUrl" name="returnUrl" />
+                        <div class="mb-3">
+                            <label asp-for="Username"></label>
+                            <input type="text" asp-for="Username" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Username"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password"></label>
+                            <input type="password" asp-for="Password" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" asp-for="RememberMe" />
+                            <label asp-for="RememberMe"></label>
+                            <span class="text-danger" asp-validation-for="RememberMe"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control btn btn-success" value="Login" type="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->
